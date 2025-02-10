@@ -1,12 +1,8 @@
 # hybrid-miner
-A hybrid cryptocurrency miner that uses a computer's CPU, GPU, Storage, and RAM.
-!! **THIS CODE IS UNFINISHED - IT WILL NOT WORK PROPERLY AS OF NOW** !!
+A hybrid cryptocurrency miner / computer resource user / renter that uses a computer's CPU, GPU, Storage, and RAM to earn crypto and automatically saves it to a wallet.
+**!! **THIS CODE IS UNFINISHED - IT WILL NOT WORK PROPERLY AS OF NOW** !!**
 
 Setup:
-Save the client.py file and run it. Ensure all libraries and dependants are installed correctly.
-Installation is correct if it asks for admin permissions
-Follow all steps that the script asks.
-
 Step 1: Clone the Repository or Download the Script
 Navigate to your GitHub repository hybrid-miner.
 
