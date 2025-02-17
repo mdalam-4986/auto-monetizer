@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script>
+        // Force page to start at the top immediately
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
+    
+        // Ensure it runs even before content is fully loaded
+        window.addEventListener("DOMContentLoaded", function () {
+            window.scrollTo(0, 0);
+        });
+    
+        // Prevent browsers from restoring the last scroll position
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetized Computer Processing Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+       
+
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Matrix Background */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            background: linear-gradient(180deg, #8A2BE2, #ff1493, #8A2BE2);
+        }
+
+        /* Blurred Overlay */
+        .overlay {
+        position: relative;
+        width: 85%;
+        max-width: 1000px;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 20px;
+        margin: auto;
+        border-radius: 10px;
+        text-align: left;
+         z-index: 1;
+        opacity: 0; /* Initially hidden */
+        transform: translateY(100px); /* Moves lower */
+        transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        
+
+        /* Content Container */
+        .content-container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            margin-top: 20vh; /* Moves content lower */
+        }
+
+        /* ASCII Logo */
+        .ascii-logo {
+            font-family: monospace;
+            white-space: pre;
+            text-align: center;
+            line-height: 1.2;
+            display: block;
+            background: linear-gradient(180deg, #8A2BE2, #ff1493, #8A2BE2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            position: absolute;
+            top: 10%; /* Moves higher */
+            left: 50%;
+            transform: translate(-50%, -50%) scale(2);
+            opacity: 1;
+            transition: transform 1.2s ease-in-out, top 1.2s ease-in-out, opacity 1.2s ease-in-out;
+        }
+        
+
+        /* After Animation */
+        .ascii-logo.shrink {
+            top: -7%; /* Moves higher up */
+            transform: translate(-50%, 0) scale(1);
+            opacity: 1;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Headings with Gradient */
+        h1, h2, h3 {
+            background: linear-gradient(to right, #8A2BE2, #ff1493, #8A2BE2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            color: #ff66b2;
+            border-left: 4px solid;
+            border-right: 4px solid;
+            border-image: linear-gradient(to right, #8A2BE2, #ff1493, #8A2BE2) 1;
+            text-align: left;
+            display: block;
+            margin: 5px 0px;
+        }
+
+        /* Step Containers */
+        .step-container {
+            margin-bottom: 10px;
+        }
+
+        /* Support Section */
+        .support-section {
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 2px solid #ff1493;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Matrix Background -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- ASCII Logo -->
+    <div class="ascii-logo" id="asciiLogo">
+        <pre>
+`7MMM.     ,MMF'MMM"""AMV MMM"""AMV 
+  MMMb    dPMM  M'   AMV  M'   AMV  
+  M YM   ,M MM  '   AMV   '   AMV   
+  M  Mb  M' MM     AMV       AMV    
+  M  YM.P'  MM    AMV   ,   AMV   , 
+  M  `YM'   MM   AMV   ,M  AMV   ,M 
+.JML. `'  .JMML.AMVmmmmMM AMVmmmmMM 
+        </pre>
+    </div>
+
+    <div class="content-container">
+        <div class="overlay" id="overlay">
+            <h2>Introduction</h2>
+<p>
+    <strong>MZZ Auto Monetizer</strong> is a powerful software that enables passive income by utilizing your computer's 
+    <strong>unused resources</strong> such as <strong>internet bandwidth, computing power, and storage</strong>. The software connects to 
+    various monetization platforms, allowing users to <strong>effortlessly earn money</strong> while their device remains online.
+</p>
+<p>
+    This software is designed for <strong>ease of use</strong>—it automates all required configurations, making it suitable 
+    for <strong>both beginners and advanced users</strong>.
+</p>
+
+<h2>Setup</h2>
+<p>
+    Before running the software, a few basic installations are required. Follow these steps carefully to ensure 
+    smooth operation.
+</p>
+
+<div class="step">
+    <p><strong>Step 1:</strong> Install Python (Required for Running the Software).</p>
+    <p>Download and install Python from <a href="https://www.python.org/downloads/">here</a>.</p>
+</div>
+
+<div class="step">
+    <p><strong>Step 2:</strong> Install Required dependencies.</p>
+    <p>Firstly, go to <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a> and right click, then press 'Save As'. Ensure it is saved as a .py file. Then, run the file in any terminal or command prompt.</p>
+    <p>Once Python is installed, open a terminal or command prompt and enter the following command:</p>
+    <div class="code-block"><strong>pip install requests</strong></div>
+</div>
+
+<div class="step">
+    <p><strong>Step 3:</strong> Download and Run the Software.</p>
+    <p>Clone the repository and start the application with:</p>
+    <div class="code-block">
+        <strong>git clone https://github.com/mdalam-4986/auto-monetizer.git</strong><br>
+        <strong>cd monetized-computer-processing</strong><br>
+        <strong>python main.py</strong>
+    </div>
+</div>
+
+<h2>App & Payment Setup</h2>
+<p>
+    Some monetization services require <strong>API keys</strong>, while others need software installation. Additionally, 
+    the software supports <strong>automated payouts</strong>, allowing you to withdraw your earnings without manual input.
+</p>
+
+<h3>📡 Obtaining API Keys for Monetization Apps</h3>
+<p>For apps that require API keys, follow these general steps:</p>
+
+<div class="step">
+    <p><strong>Step 1:</strong> Create an account on the respective service (EarnApp, Honeygain, etc.).</p>
+</div>
+
+<div class="step">
+    <p><strong>Step 2:</strong> Log in and go to "<strong>API Settings</strong>" or "<strong>Account Settings</strong>".</p>
+</div>
+
+<div class="step">
+    <p><strong>Step 3:</strong> Locate the API key, copy it, and paste it into the software when prompted.</p>
+</div>
+
+<h3>💰 Setting Up Payment APIs</h3>
+<p>
+    The software supports <strong>automated payments</strong>, ensuring that you receive your earnings <strong>without manual intervention</strong>.
+    Payment services supported include:
+</p>
+<ul>
+    <li><strong>PayPal API:</strong> Enables automatic withdrawals to PayPal.</li>
+    <li><strong>Cryptocurrency API (Binance, Coinbase):</strong> Transfers earnings directly to a crypto wallet.</li>
+</ul>
+<p>To set up payments, follow these steps:</p>
+
+<div class="step">
+    <p><strong>Step 1:</strong> Navigate to the "<strong>Settings & Maintenance</strong>" section.</p>
+</div>
+
+<div class="step">
+    <p><strong>Step 2:</strong> Select "<strong>Payment Setup</strong>" and enter your preferred payment method.</p>
+</div>
+
+<div class="step">
+    <p><strong>Step 3:</strong> Enable <strong>auto-withdrawal</strong> to receive funds periodically.</p>
+</div>
+
+<h2>Useful Features</h2>
+<ul>
+    <li><strong>Automated Earnings:</strong> The software manages and optimizes all monetization services.</li>
+    <li><strong>Auto Payouts:</strong> Withdraw your earnings <strong>instantly</strong> to PayPal, crypto, or bank accounts.</li>
+    <li><strong>Multiple Monetization Services:</strong> Earn through <strong>bandwidth sharing, computing power rental, and decentralized networks</strong>.</li>
+    <li><strong>Resource Optimization:</strong> The software ensures your system remains stable while earning.</li>
+    <li><strong>Easy API & Software Setup:</strong> Set up new services with just a few clicks.</li>
+</ul>
+
+<h2>App & API List</h2>
+
+<h3>🚀 Apps That Require API Keys</h3>
+<ul>
+    <li><strong>EarnApp:</strong> Bandwidth-sharing app that pays for unused internet.</li>
+    <li><strong>Honeygain:</strong> Earn money by allowing your device to share internet securely.</li>
+    <li><strong>PacketStream:</strong> Similar to Honeygain, monetizing your internet connection.</li>
+</ul>
+
+<h3>🖥️ Apps That Require Installation</h3>
+<ul>
+    <li><strong>FluidStack:</strong> Rent out your GPU for cloud-based rendering and AI training.</li>
+    <li><strong>Vast.ai:</strong> Enables you to monetize your GPU by renting it to AI researchers.</li>
+    <li><strong>Golem Network:</strong> A decentralized computing network for distributed workloads.</li>
+    <li><strong>Akash Network:</strong> A cloud-based service that rents out your unused CPU & GPU power.</li>
+</ul>
+
+<h3>💳 Payment APIs Supported</h3>
+<ul>
+    <li><strong>PayPal API:</strong> Withdraw earnings directly to PayPal.</li>
+    <li><strong>Binance API:</strong> Convert earnings to cryptocurrency and send them to Binance.</li>
+    <li><strong>Coinbase API:</strong> Automatically transfer payments to a Coinbase wallet.</li>
+</ul>
+
+<h2>Contact for Support</h2>
+<div class="support-section">
+    <p>For any issues or inquiries, reach out through the following channels:</p>
+    <p><strong>Email:</strong> support@example.com</p>
+    <p><strong>Discord:</strong> discord.gg/example</p>
+</div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        // Matrix Background Animation with Vertical Gradient
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const columns = Math.floor(canvas.width / 14);
+        const drops = Array(columns).fill(0);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, "#8A2BE2");
+            gradient.addColorStop(0.5, "#ff1493");
+            gradient.addColorStop(1, "#8A2BE2");
+
+            ctx.fillStyle = gradient;
+            ctx.font = "14px monospace";
+
+            drops.forEach((y, i) => {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i * 14, y * 14);
+                drops[i] = y * 14 > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // ASCII Logo Animation & Fade-in Content
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById("asciiLogo").classList.add("shrink");
+                setTimeout(() => {
+                    document.getElementById("overlay").classList.add("show");
+                }, 1200);
+            }, 500);
+        };
+      
+
+    </script>
+
+</body>
+</html>
